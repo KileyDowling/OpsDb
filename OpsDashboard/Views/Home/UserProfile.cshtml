@@ -1,0 +1,51 @@
+﻿@model OpsDashboard.Models.User
+  
+@if (Model != null)
+{
+    <h2>@Model.FullName</h2>
+    <h4>@Model.Title</h4>
+    @Model.Email
+
+  <br/>
+  <section>
+    <h4>Projects</h4>
+    @if (Model.Projects != null && Model.Projects.Count > 0)
+    {
+      <ul>
+        @foreach (var proj in Model.Projects)
+        {
+          <li>@proj.Name</li>
+        }
+      </ul>
+
+    }
+  </section>
+
+  <section>
+    <h4>Technologies:</h4>
+    @if (Model.TechTags.Count > 0)
+    {
+      <ul>
+        @foreach (string tag in Model.TechTags)
+        {
+          <li>@tag</li>
+        }
+      </ul>
+     }
+  </section>
+  <section>
+    <h4>Certifications</h4>
+    @if (Model.Certifications != null && Model.Certifications.Count > 0)
+    {
+      <ul>
+        @foreach (var cert in Model.Certifications)
+        {
+          <li>
+            <label>@cert.Name: </label> @cert.Vendor, @cert.DateAchieved.ToShortDateString(), @cert.Description
+          </li>
+        }
+      </ul>
+    }
+  </section>
+
+}

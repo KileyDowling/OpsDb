@@ -1,0 +1,32 @@
+﻿@model OpsDashboard.Models.DashboardVM
+
+<h3> Dashboard</h3>
+
+<section>
+  <h4>Projects</h4>
+  <ul>
+    @if (Model.Projects != null && Model.Projects.Count > 0)
+    {
+      foreach (var project in Model.Projects)
+      {
+        <li><a href="@project.ProjectId">@project.Name</a></li>
+      }
+    }
+  </ul>
+</section>
+
+
+<section>
+  <h4>Team</h4>
+  <ul>
+    @if (Model.Users !=null && Model.Users.Count > 0)
+    {
+      foreach (var user in Model.Users)
+      {
+        <li>
+         @Html.ActionLink(user.FullName, "UserProfile", new {userId = user.EmployeeId});
+        </li>
+      }
+    }
+  </ul>
+</section>
