@@ -32,8 +32,19 @@ namespace OpsDashboard.Repo
         Certifications = GetCertifications(),
       };
 
+      User user3 = new User()
+      {
+        FirstName = "Michael",
+        LastName = "Johrdan",
+        Email = "mjordan@site.com",
+        Title = "Project Manager",
+        EmployeeId = 74747474,
+        Certifications = GetCertifications(),
+      };
+
       users.Add(user1);
       users.Add(user2);
+      users.Add(user3);
 
       return users;
     }
@@ -65,7 +76,11 @@ namespace OpsDashboard.Repo
     public List<Project> GetProjectsByUser(int id)
     {
       return GetAllProjects();
-      }
+    }
+    public List<User> GetUsersByProject(int id)
+    {
+      return GetAllUsers();
+    }
 
     public List<Certification> GetCertifications()
     {
@@ -79,7 +94,16 @@ namespace OpsDashboard.Repo
         Description = "This shows you know something about programming"
       };
 
+      Certification cert2 = new Certification()
+      {
+        Vendor = "Sitecore",
+        Name = "Sitecore Certified",
+        DateAchieved = new DateTime(2016, 12, 25),
+        Description = "7.x, 8.x"
+      };
+
       certifications.Add(cert1);
+      certifications.Add(cert2);
 
       return certifications;
     }

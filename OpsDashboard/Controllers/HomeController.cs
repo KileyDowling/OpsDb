@@ -10,30 +10,31 @@ namespace OpsDashboard.Controllers
 {
     public class HomeController : Controller
     {
-     IData _testData = new TestData();
+     IData _data = new TestData();
 
     // GET: Home
     public ActionResult Index()
       {
         DashboardVM viewModel = new DashboardVM()
         {
-          Projects = _testData.GetAllProjects(),
-          Users = _testData.GetAllUsers()
+          Projects = _data.GetAllProjects(),
+          Users = _data.GetAllUsers()
         };
             return View(viewModel);
    }
 
     public ActionResult ProjectPage(int id)
     {
-      Project project = _testData.GetProject(id);
+      Project project = _data.GetProject(id);
+      project.UsersOnProject = _data.GetUsersByProject(id);
       return View(project);
     }
 
       public ActionResult UserProfile(int userId)
       {
-        User user = _testData.GetUser(userId);
-        user.Projects = _testData.GetProjectsByUser(userId);
-        user.TechTags = _testData.GetTags();
+        User user = _data.GetUser(userId);
+        user.Projects = _data.GetProjectsByUser(userId);
+        user.TechTags = _data.GetTags();
 
       return View(user);
       }

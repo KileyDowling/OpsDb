@@ -12,9 +12,9 @@
     @if (Model.Projects != null && Model.Projects.Count > 0)
     {
       <ul>
-        @foreach (var proj in Model.Projects)
+        @foreach (var project in Model.Projects)
         {
-          <li>@proj.Name</li>
+          <li>@Html.ActionLink(project.Name, "ProjectPage", new { id = project.ProjectId })</li>
         }
       </ul>
 
@@ -22,7 +22,7 @@
   </section>
 
   <section>
-    <h4>Technologies:</h4>
+    <h4>Technology Used:</h4>
     @if (Model.TechTags.Count > 0)
     {
       <ul>
