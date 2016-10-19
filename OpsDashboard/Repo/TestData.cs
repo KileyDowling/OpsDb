@@ -48,7 +48,7 @@ namespace OpsDashboard.Repo
 
       return users;
     }
-
+    
     public List<Project> GetAllProjects()
     {
       List<Project> projects = new List<Project>();

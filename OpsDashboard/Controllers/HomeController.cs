@@ -15,10 +15,15 @@ namespace OpsDashboard.Controllers
     // GET: Home
     public ActionResult Index()
       {
-        DashboardVM viewModel = new DashboardVM()
+
+      IData _apiData = new TenThousandFtApi();
+
+      List<User> allUsers = _apiData.GetAllUsers() ?? _data.GetAllUsers();
+
+      DashboardVM viewModel = new DashboardVM()
         {
           Projects = _data.GetAllProjects(),
-          Users = _data.GetAllUsers()
+          Users = allUsers
         };
             return View(viewModel);
    }

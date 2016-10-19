@@ -44,3 +44,5 @@ c:\users\kdowling\documents\visual studio 2015\Projects\OpsDashboard\OpsDashboar
 c:\users\kdowling\documents\visual studio 2015\Projects\OpsDashboard\OpsDashboard\obj\Debug\OpsDashboard.csprojResolveAssemblyReference.cache
 c:\users\kdowling\documents\visual studio 2015\Projects\OpsDashboard\OpsDashboard\obj\Debug\OpsDashboard.dll
 c:\users\kdowling\documents\visual studio 2015\Projects\OpsDashboard\OpsDashboard\obj\Debug\OpsDashboard.pdb
+c:\users\kdowling\documents\visual studio 2015\Projects\OpsDashboard\OpsDashboard\bin\Newtonsoft.Json.dll
+c:\users\kdowling\documents\visual studio 2015\Projects\OpsDashboard\OpsDashboard\bin\Newtonsoft.Json.xml
