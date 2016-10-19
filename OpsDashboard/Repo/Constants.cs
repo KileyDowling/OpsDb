@@ -14,7 +14,7 @@ namespace OpsDashboard.Repo
        GET  /api/v1/users
  curl 'https://vnext.10000ft.com/api/v1/users?fields=tags,assignments&auth=...'*/
 
-    public static readonly string TenThousandFtApiUrl = "https://api.10000ft.com/api/v1";
+    public static readonly string TenThousandFtApiUrl = "https://api.10000ft.com/api/v1/";
 
     public static readonly string TenThousandFtApiToken = "&auth=";
 

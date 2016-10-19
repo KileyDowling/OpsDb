@@ -12,20 +12,42 @@ namespace OpsDashboard.Repo
 {
   public class TenThousandFtApi : IData
   {
+
     public List<Project> GetAllProjects()
     {
-      throw new NotImplementedException();
+      string results = MakeTenThousandFtApiRequest(BuildRequestUrl("projects?fields=tags"));
+
+      var response = !string.IsNullOrEmpty(results) ? JsonConvert.DeserializeObject<List<Project>>(results) : null;
+
+      return response;
     }
 
     public List<User> GetAllUsers()
     {
-      string results = MakeTenThousandFtApiRequest(BuildRequestUrl("/users?fields=tags,assignments"));
+     string results = MakeTenThousandFtApiRequest(BuildRequestUrl("users?fields=tags,assignments"));
 
       var response = !string.IsNullOrEmpty(results) ? JsonConvert.DeserializeObject<List<User>>(results) : null;
 
       return response;
     }
-    
+
+    public User GetUser(int userId)
+    {
+      string results = MakeTenThousandFtApiRequest(BuildRequestUrl($"users/{userId}?fields=tags,assignments"));
+
+      var response = !string.IsNullOrEmpty(results) ? JsonConvert.DeserializeObject<User>(results) : null;
+
+      return response;
+    }
+
+    public Project GetProject(int projectId)
+    {
+      string results = MakeTenThousandFtApiRequest(BuildRequestUrl($"projects/{projectId}?fields=tags"));
+
+      var response = !string.IsNullOrEmpty(results) ? JsonConvert.DeserializeObject<Project>(results) : null;
+
+      return response;
+    }
 
     public List<Project> GetProjectsByUser(int id)
     {
@@ -46,18 +68,7 @@ namespace OpsDashboard.Repo
     {
       throw new NotImplementedException();
     }
-
-    public User GetUser(int userId)
-    {
-      throw new NotImplementedException();
-    }
-
-    public Project GetProject(int id)
-    {
-      throw new NotImplementedException();
-    }
-
-
+    
     private string MakeTenThousandFtApiRequest(string requestUrl)
     {
       string result = string.Empty;
